@@ -1,5 +1,6 @@
 package com.vinicius.rinhabackendkotlin.controllers.dto
 
+import com.vinicius.rinhabackendkotlin.domain.model.TransactionEntity
 import java.time.LocalDateTime
 
 class StatementDto(
@@ -18,4 +19,11 @@ class TransactionDto(
     val tipo: String,
     val descripcao: String,
     val realizada_em: String
-)
+) {
+    constructor(entity: TransactionEntity) : this(
+        valor = entity.valor,
+        tipo = entity.tipo,
+        descripcao = entity.descricao,
+        realizada_em = entity.realizadaEm.toString(),
+    )
+}

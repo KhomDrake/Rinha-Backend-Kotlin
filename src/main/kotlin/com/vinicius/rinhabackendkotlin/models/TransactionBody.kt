@@ -8,5 +8,5 @@ class TransactionBody(
     val tipo: String,
     val descricao: String
 ) {
-    fun isValid() = tipo.isDebit() || tipo.isCredit()
+    fun isValid() = (tipo.isDebit() || tipo.isCredit()) && descricao.length <= 10
 }
